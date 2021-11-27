@@ -8,8 +8,6 @@ import Post from "./post";
 import ShowPost from "./showPost";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
-// import "./App.css";
-
 function App() {
   const [user, setLoginUser] = useState({});
   return (
