@@ -29,8 +29,7 @@ function App() {
         </Routes>
       </Router>
       {/* <Register/> */}
-      {/* <LogIn /> */}
-      {/* <Home/> */}
+   
     </div>
   );
 }
