@@ -6,6 +6,7 @@ import LogIn from "./logIn";
 import Home from "./home";
 import Post from "./post";
 import ShowPost from "./showPost";
+import QueryPage from "./queryPage";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <Router>
         <Routes>
           <Route exact path="/" element={<Home />} />
+          <Route exact path="/queryPage" element={<QueryPage />} />
           <Route exact path = "/showPost" element={<ShowPost/>}/>
 
           <Route exact path="/post" element={<Post />} />

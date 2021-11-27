@@ -56,8 +56,6 @@ app.post("/login", async (req, res) => {
   userModel.findOne({ email: email }, async (err, user) => {
     // usedddddr.password === password
 
-     const salt = await bcrypt.genSalt(10);
-    
     if (await bcrypt.compare(password, user.password)) {
       // console.log(user);
       res.send({ message: "login sucessful", user: user });
@@ -66,9 +64,6 @@ app.post("/login", async (req, res) => {
     }
   });
 });
-
-//hello
-
 
 app.post("/post", async (req,res)=>{
 
@@ -86,6 +81,21 @@ app.get("/showPost", async (req, res) => {
         else res.send(result);
     })
 });
+
+
+app.post("/query", async (req, res) => {
+
+  const { name,location} = req.body;
+  console.log(name);
+
+  userModel.find({name: name,location: location},(e,result) => {
+
+    console.log(result);
+      if(e) res.send(e);
+      else res.send(result);
+  })
+});
+
 
 
 
