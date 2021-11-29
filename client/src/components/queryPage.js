@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-let sz=1;
+let sz = 1;
 let data;
 class QueryPage extends React.Component {
   state = {
@@ -11,7 +11,6 @@ class QueryPage extends React.Component {
     location: "",
     result: [],
   };
-
 
   add = (e) => {
     e.preventDefault();
@@ -23,22 +22,16 @@ class QueryPage extends React.Component {
 
     //   console.log(this.state)
     Axios.post("http://localhost:3001/query", this.state).then((res) => {
-       data = res.data;
-
-      //   console.log(data);
-      if(data)
-      {
-          this.setState({ result: data });
+      data = res.data;
+      if (data) {
+        this.setState({ result: data });
+      } else {
+        sz = 0;
       }
-      else
-      {
-          sz=0;
-      }
-      
     });
 
     // console.log(this.state.result);
-    // this.setState({ name: "", location: "" });
+    this.setState({ name: "", location: "" });
 
     // this.props.history.push("/");
   };
@@ -71,13 +64,7 @@ class QueryPage extends React.Component {
             Submit
           </button>
         </form>
-        {/* if(sz===0)
-        {
-          <div>
-            <h1>No one found</h1>
-          </div>
-        }
-        else */}
+
         {
           <div>
             {this.state.result.map((val, key) => {

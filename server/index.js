@@ -67,19 +67,18 @@ app.post("/login", async (req, res) => {
 
 app.post("/post", async (req,res)=>{
 
-  const { bloodGroup, bagOfBlood, location, contact } = req.body;
-  const post = new postModel({ bloodGroup, bagOfBlood, location, contact });
+  const { bloodGroup, bagOfBlood, location, contact,date } = req.body;
+  const post = new postModel({ bloodGroup, bagOfBlood, location, contact,date });
   await post.save();
   res.send({ message: "post sucessful", post: post });
 });
 
 
 app.get("/showPost", async (req, res) => {
-
     postModel.find({},(e,result) => {
         if(e) res.send(e);
         else res.send(result);
-    })
+    }).sort('-date').limit(2);
 });
 
 

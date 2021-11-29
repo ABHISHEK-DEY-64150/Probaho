@@ -1,15 +1,15 @@
 import { Form, Input, Button, Checkbox } from "antd";
 import React, { useState } from "react";
 import Axios from "axios";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
-
   const navigate = useNavigate();
   const [user, setUser] = useState({
     name: "",
     email: "",
     location: "",
+    // lastDonation:"",
     password: "",
     reEnterPassword: "",
   });
@@ -22,7 +22,6 @@ const Register = () => {
       ...user,
       [name]: value,
     });
-   
   };
 
   const register = () => {
@@ -30,32 +29,24 @@ const Register = () => {
 
     if (name && email && location && password && reEnterPassword) {
       // console.log(user);
-      if(password === reEnterPassword)
-      {
-         Axios.post("http://localhost:3001/register", user).then((res) => {
+      if (password === reEnterPassword) {
+        Axios.post("http://localhost:3001/register", user).then((res) => {
           alert(res.data.message);
           // setLoginUser(res.data.user);
           navigate("/login");
         });
-     
-      }
-      else
-      {
+      } else {
         alert("password does not match");
       }
-     
-      
     } else {
       alert("Enter All fields");
     }
-  
   };
 
   return (
     <div className="card-body">
-      
       <div className="container">
-       <h1>Registration</h1>
+        <h1>Registration</h1>
 
         <div className="form-group">
           <label>Name</label>
@@ -129,11 +120,16 @@ const Register = () => {
         </button>
         <div>Already signed up?</div>
 
-        <button type="submit" className="btn btn-primary" onClick={()=>{navigate("/login")}}>
-        Login
-      </button>
+        <button
+          type="submit"
+          className="btn btn-primary"
+          onClick={() => {
+            navigate("/login");
+          }}
+        >
+          Login
+        </button>
       </div>
-      
     </div>
   );
 };
@@ -221,55 +217,55 @@ export default Register;
 // </div> */
 // }
 
-{
-  /* <div>
+// {
+//   <div>
 
-{console.log("User", user)}
- <h1>register</h1>
+// {console.log("User", user)}
+//  <h1>register</h1>
 
- <input
-   type="text"
-   placeholder="Enter your name"
-   name="name"
-   value={user.name}
-   onChange={handleChange}
- ></input>
- <input
-   type="text"
-   placeholder="Enter ur email"
-   name="email"
-   value={user.email}
-   onChange={handleChange}
- ></input>
- <input
-   type="text"
-   placeholder="Enter ur location"
-   name="location"
-   value={user.location}
-   onChange={handleChange}
- ></input>
- <br />
- <input
-   type="text"
-   placeholder="Enter ur password"
-   name="password"
-   value={user.password}
-   onChange={handleChange}
- ></input>
- <input
-   type="text"
-   placeholder="confirm Password"
-   name="reEnterPassword"
-   value={user.reEnterPassword}
-   onChange={handleChange}
- ></input>
+//  <input
+//    type="text"
+//    placeholder="Enter your name"
+//    name="name"
+//    value={user.name}
+//    onChange={handleChange}
+//  ></input>
+//  <input
+//    type="text"
+//    placeholder="Enter ur email"
+//    name="email"
+//    value={user.email}
+//    onChange={handleChange}
+//  ></input>
+//  <input
+//    type="text"
+//    placeholder="Enter ur location"
+//    name="location"
+//    value={user.location}
+//    onChange={handleChange}
+//  ></input>
+//  <br />
+//  <input
+//    type="text"
+//    placeholder="Enter ur password"
+//    name="password"
+//    value={user.password}
+//    onChange={handleChange}
+//  ></input>
+//  <input
+//    type="text"
+//    placeholder="confirm Password"
+//    name="reEnterPassword"
+//    value={user.reEnterPassword}
+//    onChange={handleChange}
+//  ></input>
 
- <button type="submit" onClick={register}>Register</button>
- <p>Already signed up?</p>
- <button type="submit" >
-   Login
- </button>
-</div>
-);
-}; */
-}
+//  <button type="submit" onClick={register}>Register</button>
+//  <p>Already signed up?</p>
+//  <button type="submit" >
+//    Login
+//  </button>
+// </div>
+// );
+// }; 
+// }

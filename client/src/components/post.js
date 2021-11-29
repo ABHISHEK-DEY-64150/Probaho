@@ -10,6 +10,7 @@ const Post = () => {
     bagOfBlood: "",
     location: "",
     contact: "",
+    date:new Date(),
   });
 
   const handleChange = (e) => {
@@ -23,10 +24,13 @@ const Post = () => {
   };
 
   const posting = () => {
+
+
     const { bloodGroup, bagOfBlood, location, contact } = post;
+    // const date = new Date();
 
     if (bloodGroup && bagOfBlood && location && contact) {
-      console.log(post);
+      // console.log(post.date);
       Axios.post("http://localhost:3001/post", post).then((res) => {
         alert(res.data.message);
         // setLoginUser(res.data.user);
