@@ -23,7 +23,7 @@ app.listen(3001, () => {
 });
 
 app.post("/register", async (req, res) => {
-  const { name, email, location, password } = req.body;
+  const { name, email, location, password,lastDonation} = req.body;
 
   // console.log(password);
   // const salt =  bcrypt.genSalt(6);
@@ -33,7 +33,7 @@ app.post("/register", async (req, res) => {
     if (user) {
       res.send({ message: "user already exist" });
     } else {
-      const user = new userModel({ name, email, location, password });
+      const user = new userModel({ name, email, location, password,lastDonation });
       const salt = await bcrypt.genSalt(10);
 
       user.password = await bcrypt.hash(user.password, salt);
@@ -84,10 +84,14 @@ app.get("/showPost", async (req, res) => {
 
 app.post("/query", async (req, res) => {
 
+  const now = new Date();
+  const temp = new Date(now).setMonth(now.getMonth() - 2);
+  const lastDay = new Date(temp);
+
   const { name,location} = req.body;
   console.log(name);
 
-  userModel.find({name: name,location: location},(e,result) => {
+  userModel.find({"lastDonation":{$gte: lastDay, $lt: new Date()},name:name,location:location},(e,result) => {
 
     console.log(result);
       if(e) res.send(e);
