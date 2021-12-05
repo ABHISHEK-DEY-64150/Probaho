@@ -1,48 +1,48 @@
 import Axios from 'axios';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { DatePicker, Space } from 'antd';
+import NavBarSignUp from '../components/navBarSignUpPage';
+import css from './css/SignUpPage.css';
+
 
 import { Form, Input, Select, Button } from 'antd';
 const { Option } = Select;
 const formItemLayout = {
-	labelCol: {
-		xs: {
-			span: 24,
-		},
-		sm: {
-			span: 12,
-		},
-	},
-	wrapperCol: {
-		xs: {
-			span: 24,
-		},
-		sm: {
-			span: 16,
-		},
-	},
+	// labelCol: {
+	// 	xs: {
+	// 		span: 24,
+	// 	},
+	// 	sm: {
+	// 		span: 12,
+	// 	},
+	// },
+	// wrapperCol: {
+	// 	xs: {
+	// 		span: 24,
+	// 	},
+	// 	sm: {
+	// 		span: 16,
+	// 	},
+	// },
 };
 const tailFormItemLayout = {
-	wrapperCol: {
-		xs: {
-			span: 24,
-			offset: 0,
-		},
-		sm: {
-			span: 16,
-			offset: 8,
-		},
-	},
+	// wrapperCol: {
+	// 	xs: {
+	// 		span: 24,
+	// 		offset: 0,
+	// 	},
+	// 	sm: {
+	// 		span: 16,
+	// 		offset: 8,
+	// 	},
+	// },
 };
 
 const RegistrationForm = () => {
 	const [form] = Form.useForm();
 
-	//   const onFinish = (values) => {
-	//     console.log('Received values of form: ', values);
-	//   };
-
-	//   const navigate = useNavigate();
+	const navigate = useNavigate();
 
 	const [user, setUser] = useState({
 		name: '',
@@ -52,6 +52,7 @@ const RegistrationForm = () => {
 		location: '',
 		phone: '',
 		gender: '',
+		lastDonation: '',
 		bloodGroup: '',
 	});
 
@@ -64,25 +65,13 @@ const RegistrationForm = () => {
 		console.log(name, value);
 	};
 
-	// const handleChangeSelect = (e) => {
-	//   const { name, value } = e;
-
-	//   console.log(e);
-	//   setUser({
-	//     ...user,
-	//     [name]: value,
-	//   });
-
-	// };
-
 	const handleChangeSelect = (key, value) => {
 		setUser({
 			...user,
 			[key]: value,
 		});
+		console.log(key, value);
 	};
-
-	// if (name && email && location && password && reEnterPassword && phone && gender && bloodGroup)
 
 	const register = () => {
 		console.log(user);
@@ -96,7 +85,10 @@ const RegistrationForm = () => {
 			phone,
 			gender,
 			bloodGroup,
+			lastDonation,
 		} = user;
+
+		// && location && gender && bloodGroup && lastDonation
 
 		if (name && email && password && reEnterPassword && phone) {
 			console.log(user);
@@ -104,7 +96,7 @@ const RegistrationForm = () => {
 				Axios.post('http://localhost:3001/register', user).then((res) => {
 					//alert(res.data.message);
 					// setLoginUser(res.data.user);
-					//navigate("/login");
+					navigate('/login');
 					console.log(res.data.message);
 				});
 			} else {
@@ -115,235 +107,231 @@ const RegistrationForm = () => {
 		}
 	};
 
-	//   const prefixSelector = (
-	//     <Form.Item name="prefix" noStyle>
-	//       <Select
-	//         style={{
-	//           width: 70,
-	//         }}
-	//       >
-	//         <Option value="88">+88</Option>
-	//       </Select>
-	//     </Form.Item>
-	//   );
-	//   const suffixSelector = (
-	//     <Form.Item name="suffix" noStyle>
-	//       <Select
-	//         style={{
-	//           width: 70,
-	//         }}
-	//       >
-	//         <Option value="USD">$</Option>
-	//         <Option value="CNY">¥</Option>
-	//       </Select>
-	//     </Form.Item>
-	//   );
-	const [autoCompleteResult, setAutoCompleteResult] = useState([]);
-
 	return (
-		<Form
-			{...formItemLayout}
-			form={form}
-			name='register'
-			//   onFinish={onFinish}
-			//   initialValues={{
-			//     residence: ['zhejiang', 'hangzhou', 'xihu'],
-			//     prefix: '86',
-			//   }}
-			scrollToFirstError>
-			<Form.Item
-				name='name'
-				label='Name'
-				rules={[
-					{
-						required: true,
-						message: 'Please enter your Name',
-					},
-				]}>
-				<Input
-					type='text'
-					name='name'
-					value={user.name}
-					onChange={handleChange}
-					placeholder='Your Name'
-				/>
-			</Form.Item>
+		<>
+			<NavBarSignUp />
 
-			<Form.Item
-				name='email'
-				label='E-mail'
-				rules={[
-					{
-						type: 'email',
-						message: 'The input is not valid E-mail!',
-					},
-					{
-						required: true,
-						message: 'Please input your E-mail!',
-					},
-				]}>
-				<Input
-					type='text'
-					name='email'
-					value={user.email}
-					onChange={handleChange}
-					placeholder='Your Email'
-				/>
-			</Form.Item>
+			<h1 style={{textAlign:"center",color:"red"}}>Signup as Blood Donor</h1>
+			<div className='card-signUp'>
+			
+					<Form.Item
+						name='name'
+						label='Name'
+						className='form-item'
+						rules={[
+							{
+								required: true,
+								message: 'Please enter your Name',
+							},
+						]}>
+						<Input
+							type='text'
+							name='name'
+							value={user.name}
+							onChange={handleChange}
+							placeholder='Your Name'
+						/>
+					</Form.Item>
 
-			<Form.Item
-				name='password'
-				label='Password'
-				rules={[
-					{
-						required: true,
-						message: 'Please input your password!',
-					},
-				]}
-				hasFeedback>
-				<Input.Password
-					type='text'
-					name='reEnterPassword'
-					value={user.reEnterPassword}
-					onChange={handleChange}
-					placeholder='Your Password'
-				/>
-			</Form.Item>
+					<Form.Item
+						name='email'
+						label='E-mail'
+						className='form-item'
+						rules={[
+							{
+								type: 'email',
+								message: 'The input is not valid E-mail!',
+							},
+							{
+								required: true,
+								message: 'Please input your E-mail!',
+							},
+						]}>
+						<Input
+							type='text'
+							name='email'
+							value={user.email}
+							onChange={handleChange}
+							placeholder='Your Email'
+						/>
+					</Form.Item>
 
-			<Form.Item
-				name='confirm'
-				label='Confirm Password'
-				dependencies={['password']}
-				hasFeedback
-				rules={[
-					{
-						required: true,
-						message: 'Please confirm your password!',
-					},
-					({ getFieldValue }) => ({
-						validator(_, value) {
-							if (!value || getFieldValue('password') === value) {
-								return Promise.resolve();
-							}
+					<Form.Item
+						name='password'
+						label='Password'
+						className='form-item'
+						rules={[
+							{
+								required: true,
+								message: 'Please input your password!',
+							},
+						]}
+						hasFeedback>
+						<Input.Password
+							type='text'
+							name='reEnterPassword'
+							value={user.reEnterPassword}
+							onChange={handleChange}
+							placeholder='Your Password'
+						/>
+					</Form.Item>
 
-							return Promise.reject(
-								new Error('The two passwords that you entered do not match!')
-							);
-						},
-					}),
-				]}>
-				<Input.Password
-					type='text'
-					name='password'
-					value={user.reEnterPassword}
-					onChange={handleChange}
-					placeholder='Confirm your password'
-				/>
-			</Form.Item>
+					<Form.Item
+						name='confirm'
+						label='Confirm Password'
+						dependencies={['password']}
+						hasFeedback
+						rules={[
+							{
+								required: true,
+								message: 'Please confirm your password!',
+							},
+							({ getFieldValue }) => ({
+								validator(_, value) {
+									if (!value || getFieldValue('password') === value) {
+										return Promise.resolve();
+									}
 
-			<Form.Item
-				name='City'
-				label='Ciry'
-				rules={[
-					{
-						required: true,
-						message: 'Please select City!',
-					},
-				]}>
-				<Select
-					type='text'
-					name='location'
-					value={user.location}
-					onChange={(value) => handleChangeSelect('location', value)}
-					placeholder='Select Your City'>
-					<Select.Option value='Dhaka'>Dhaka</Select.Option>
-					<Select.Option value='Sylhet'>Sylhet</Select.Option>
-					<Select.Option value='Chittagong'>Chittagong</Select.Option>
-					<Select.Option value='Comilla'>Comilla</Select.Option>
-					<Select.Option value='Rajshahi'>Rajshahi</Select.Option>
-					<Select.Option value='Rangpur'>Rangpur</Select.Option>
-					<Select.Option value='Barishal'>Barishal</Select.Option>
-					<Select.Option value='Brahminbaria'>Brahminbaria</Select.Option>
-				</Select>
-			</Form.Item>
+									return Promise.reject(
+										new Error(
+											'The two passwords that you entered do not match!'
+										)
+									);
+								},
+							}),
+						]}>
+						<Input.Password
+							type='text'
+							name='password'
+							value={user.reEnterPassword}
+							onChange={handleChange}
+							placeholder='Confirm your password'
+						/>
+					</Form.Item>
 
-			<Form.Item
-				name='phone'
-				label='Phone Number'
-				rules={[
-					{
-						required: true,
-						message: 'Please input your phone number!',
-					},
-				]}>
-				<Input
-					//   addonBefore={prefixSelector}
-					style={{
-						width: '100%',
-					}}
-					type='text'
-					name='phone'
-					value={user.phone}
-					onChange={handleChange}
-					placeholder='Your phone number'
-				/>
-			</Form.Item>
+					<Form.Item
+						name='City'
+						label='Ciry'
+						rules={[
+							{
+								required: true,
+								message: 'Please select City!',
+							},
+						]}>
+						<Select
+							type='text'
+							name='location'
+							value={user.location}
+							onChange={(value) => handleChangeSelect('location', value)}
+							placeholder='Select Your City'>
+							<Select.Option value='Dhaka'>Dhaka</Select.Option>
+							<Select.Option value='Sylhet'>Sylhet</Select.Option>
+							<Select.Option value='Chittagong'>Chittagong</Select.Option>
+							<Select.Option value='Comilla'>Comilla</Select.Option>
+							<Select.Option value='Rajshahi'>Rajshahi</Select.Option>
+							<Select.Option value='Rangpur'>Rangpur</Select.Option>
+							<Select.Option value='Barishal'>Barishal</Select.Option>
+							<Select.Option value='Brahminbaria'>Brahminbaria</Select.Option>
+						</Select>
+					</Form.Item>
 
-			<Form.Item
-				name='gender'
-				label='Gender'
-				rules={[
-					{
-						required: true,
-						message: 'Please select gender!',
-					},
-				]}>
-				<Select
-					type='text'
-					name='gender'
-					value={user.gender}
-					onChange={(value) => handleChangeSelect('gender', value)}
-					placeholder='select your gender'>
-					<Option value='male'>Male</Option>
-					<Option value='female'>Female</Option>
-					<Option value='other'>Other</Option>
-				</Select>
-			</Form.Item>
-			<Form.Item
-				name='blood'
-				label='Blood group'
-				rules={[
-					{
-						required: true,
-						message: 'Please select blood group!',
-					},
-				]}>
-				<Select
-					type='text'
-					name='blood'
-					value={user.bloodGroup}
-					onChange={(value) => handleChangeSelect('bloodGroup', value)}
-					placeholder='select blood group'>
-					<Option value='A+'>A+</Option>
-					<Option value='B+'>B+</Option>
-					<Option value='O+'>O+</Option>
-					<Option value='AB+'>AB+</Option>
-					<Option value='A-'>A-</Option>
-					<Option value='B-'>B-</Option>
-					<Option value='O-'>O-</Option>
-					<Option value='AB-'>AB-</Option>
-				</Select>
-			</Form.Item>
+					<Form.Item
+						name='phone'
+						label='Phone Number'
+						rules={[
+							{
+								required: true,
+								message: 'Please input your phone number!',
+							},
+						]}>
+						<Input
+							//   addonBefore={prefixSelector}
+							style={{
+								width: '100%',
+							}}
+							type='text'
+							name='phone'
+							value={user.phone}
+							onChange={handleChange}
+							placeholder='Your phone number'
+						/>
+					</Form.Item>
 
-			<Form.Item {...tailFormItemLayout}>
-				<Button type='primary' htmlType='submit' onClick={register}>
-					Register
-				</Button>
-			</Form.Item>
-		</Form>
+					<Form.Item
+						name='gender'
+						label='Gender'
+						rules={[
+							{
+								required: true,
+								message: 'Please select gender!',
+							},
+						]}>
+						<Select
+							type='text'
+							name='gender'
+							value={user.gender}
+							onChange={(value) => handleChangeSelect('gender', value)}
+							placeholder='select your gender'>
+							<Option value='male'>Male</Option>
+							<Option value='female'>Female</Option>
+							<Option value='other'>Other</Option>
+						</Select>
+					</Form.Item>
+					<Form.Item
+						name='blood'
+						label='Blood group'
+						rules={[
+							{
+								required: true,
+								message: 'Please select blood group!',
+							},
+						]}>
+						<Select
+							type='text'
+							name='blood'
+							value={user.bloodGroup}
+							onChange={(value) => handleChangeSelect('bloodGroup', value)}
+							placeholder='select blood group'>
+							<Option value='A+'>A+</Option>
+							<Option value='B+'>B+</Option>
+							<Option value='O+'>O+</Option>
+							<Option value='AB+'>AB+</Option>
+							<Option value='A-'>A-</Option>
+							<Option value='B-'>B-</Option>
+							<Option value='O-'>O-</Option>
+							<Option value='AB-'>AB-</Option>
+						</Select>
+					</Form.Item>
+
+					<Form.Item
+						name='lastDonation'
+						label='Last Blood Donation'
+						rules={[
+							{
+								required: true,
+								message: 'Please input date!',
+							},
+						]}>
+						<DatePicker
+							name='lastDonation'
+							value={user.lastDonation}
+							onChange={(value) => handleChangeSelect('lastDonation', value)}
+						/>
+					</Form.Item>
+
+					<Form.Item {...tailFormItemLayout}>
+						<Button className='signup' htmlType='submit' onClick={register}>
+							Sign Up
+						</Button>
+					</Form.Item>
+				
+			</div>
+
+		
+				
+			
+		</>
 	);
 };
-
-// ReactDOM.render(<RegistrationForm />, mountNode);
 
 export default RegistrationForm;

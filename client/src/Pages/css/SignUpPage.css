@@ -1,0 +1,97 @@
+.card-signUp {
+    align-content: center;
+    margin-top: 53px;
+    border: 1px solid #2c13db;
+    border-radius: 34px;
+    transition: all 1s ease;
+    background-color: #bcc6cf;
+    justify-content: center;
+    width: 42%;
+    margin-left: 29rem;
+    margin-top: 20px;
+}
+
+
+.PageLayout {
+	height: 10vh;
+	width: 100wh;
+	background-color: rgb(146, 194, 115);
+}
+
+.header {
+	position: fixed;
+	z-index: 1;
+	/* width: '100%'; */
+}
+
+.menu {
+	justify-content: center;
+
+	background-color: rgb(197, 226, 226);
+}
+
+.content {
+	height: 100vh;
+	width: 100wh;
+	background-color: rgb(126, 82, 93);
+}
+
+
+
+
+
+.card {
+	margin: 1rem;
+	flex-basis: 45%;
+	padding: 1.5rem;
+	text-align: left;
+	color: inherit;
+	text-decoration: none;
+	border: 1px solid #eaeaea;
+	border-radius: 10px;
+	transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+
+
+.signup {
+    background-color: #b1e8dd;
+    border: none;
+    padding: 8px 10px 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: bold;
+    margin: 3px 353px;
+    height: 45px;
+    width: 110px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 24px;
+    color: rgb(37, 22, 210);
+    border: 2px solid #0d8693;
+}
+
+.signup:hover {
+	background-color: rgb(37, 22, 210);
+	color: #b1e8dd;
+    border: 2px solid #0e058d;
+}
+
+.form-item {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 12px -14px 10px 10px;
+    color: rgba(0, 0, 0, 0.85);
+    font-size: 14px;
+    font-variant: tabular-nums;
+    line-height: 1.5715;
+    list-style: none;
+    font-feature-settings: 'tnum', 'tnum', 'tnum', 'tnum', "tnum";
+    margin-bottom: 24px;
+    margin-top: 23px;
+    margin-right: 150px;
+    margin-left: -38px;
+    vertical-align: top;
+    transition: margin-bottom 0.3s 0.017s linear;
+}

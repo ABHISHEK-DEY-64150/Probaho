@@ -2,36 +2,38 @@ import { useState, useEffect } from 'react';
 import Axios from 'axios';
 import './App.css';
 import Register from './Pages/Register';
-import Register1 from './Pages/Register1';
-import FrontPage from './Pages/FrontPage';
+import Search_Donor from './Pages/Search_Donor';
+import Login from './Pages/Login';
+import Post from './Pages/Post';
+import ShowPost from './Pages/ShowPost';
+import Design from './Pages/FrontPage';
+import Demo from './Pages/Demo';
+import Profile from './Pages/Profile';
+import Edit from './Pages/Edit';
+import Logout from './Pages/Logout';
+
+
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
 function App() {
 	return (
-		<div className='App'>
-			<div>
+		<div>
+			
 				<Router>
 					<Routes>
-						<Route exact path='/' element={<FrontPage />} />
-						{/* <Route exact path="/queryPage" element={<QueryPage />} />
-          <Route exact path = "/showPost" element={<ShowPost/>}/> */}
-
-						{/* <Route exact path="/post" element={<Post />} /> */}
+						<Route exact path='/' element={<Design />} />
 						<Route path='/register' element={<Register />} />
-
-						{/* <Route
-            path="/login"
-            element={<LogIn setLoginUser={setLoginUser} />}
-          /> */}
+						<Route path='/Login' element={<Login />} />
+						<Route exact path='/Search_Donor' element={<Search_Donor />} />
+						<Route path='/Post' element={<Post />} />
+						{/* <Route path='/ShowPost' element={<ShowPost />} /> */}
+						<Route path='/Demo' element={<Demo />} />
+						<Route path='/Profile' element={<Profile />}/>
+						<Route path='/Edit' element={<Edit />}/>
+						<Route path='/' element={<Logout />}/>
 					</Routes>
 				</Router>
-				{/* <Register/> */}
-			</div>
-
-			{/* <Register1 /> */}
-
-			{/* <Register /> */}
-			{/* <FrontPage /> */}
+			
 		</div>
 	);
 }
