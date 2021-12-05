@@ -33,16 +33,16 @@ const Login = ({setLoginUser}) => {
           if(res.data.message === "login sucessful")
           {
             alert(res.data.message);
-            setLoginUser(res.data.user);
-            navigate("/");
+
+            console.log(res.data.cookie);
+            // setLoginUser(res.data.user);
+            navigate("/login");
           }
           else
           {
-            alert(res.data.message);
-            setLoginUser(res.data.user);
-
+             alert(res.data.message);
           }
-          
+ 
           
          
         });

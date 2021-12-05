@@ -1,0 +1,120 @@
+.PageLayout {
+	height: 100vh;
+	width: 100wh;
+	background-color: rgb(146, 194, 115);
+}
+
+.header {
+	position: fixed;
+	z-index: 1;
+	/* width: '100%'; */
+}
+
+.menu {
+	justify-content: center;
+
+	background-color: rgb(197, 226, 226);
+}
+
+.content {
+	height: 100vh;
+	width: 100wh;
+	background-color: rgb(126, 82, 93);
+}
+
+.ant-form-item-city {
+	box-sizing: border-box;
+	margin: 45px;
+	padding: 7px;
+	color: rgba(0, 0, 0, 0.85);
+	font-size: 14px;
+	font-variant: tabular-nums;
+	line-height: -7.4285;
+	list-style: none;
+	font-feature-settings: 'tnum', 'tnum';
+	margin-bottom: 24px;
+	vertical-align: top;
+	transition: margin-bottom 0.3s 0.017s linear;
+	margin-left: 95px;
+}
+
+.ant-form-item-blood {
+	box-sizing: border-box;
+	margin: 45px;
+	padding: 7px;
+	color: rgba(0, 0, 0, 0.85);
+	font-size: 14px;
+	font-variant: tabular-nums;
+	line-height: -7.4285;
+	list-style: none;
+	font-feature-settings: 'tnum', 'tnum';
+	margin-bottom: 24px;
+	vertical-align: top;
+	transition: margin-bottom 0.3s 0.017s linear;
+}
+
+.query-result {
+	align-content: center;
+	margin-top: 53px;
+	border: 1px solid #c51616;
+	border-radius: 34px;
+	transition: color 0.15s ease, border-color 0.15s ease;
+	background-color: #bcc6cf;
+	width: 1254px;
+	margin-left: 200px;
+}
+
+.card {
+	margin: 1rem;
+	flex-basis: 45%;
+	padding: 1.5rem;
+	text-align: left;
+	color: inherit;
+	text-decoration: none;
+	border: 1px solid #eaeaea;
+	border-radius: 10px;
+	transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.query-result-name {
+	margin-left: 420px;
+}
+
+.query-result-email {
+	margin-left: 420px;
+}
+
+.query-result-phone {
+	align-content: center;
+	margin-left: 420px;
+}
+
+.query-result-location {
+	align-content: center;
+	margin-left: 420px;
+}
+
+.search {
+    background-color: #d2e9d3;
+    border: none;
+    color: rgba(124, 160, 69, 0.8);
+    padding: 12px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 0px 140px;
+    height: 51px;
+    width: 131px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 15px;
+
+    color: rgb(46, 42, 42);
+    border: 2px solid #4caf50;
+}
+
+.search:hover {
+	background-color: rgba(173, 235, 144, 0.692);
+	color: black;
+}

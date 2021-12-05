@@ -7,6 +7,7 @@ import Home from "./home";
 import Post from "./post";
 import ShowPost from "./showPost";
 import QueryPage from "./queryPage";
+import EditDate from "./editDate";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 function App() {
@@ -15,10 +16,11 @@ function App() {
     <div>
       <Router>
         <Routes>
+          {/* <Route exact path="/" element={user && user._id ? <Home /> : <LogIn />}/> */}
+
           <Route exact path="/" element={<Home />} />
           <Route exact path="/queryPage" element={<QueryPage />} />
-          <Route exact path = "/showPost" element={<ShowPost/>}/>
-
+          <Route exact path="/showPost" element={<ShowPost />} />
           <Route exact path="/post" element={<Post />} />
           <Route path="/register" element={<Register />} />
 
@@ -26,10 +28,14 @@ function App() {
             path="/login"
             element={<LogIn setLoginUser={setLoginUser} />}
           />
+
+          {/* <Route path='/edit/:name' component={Favorites} /> */}
+
+          <Route path="/edit" element={<EditDate /> } />
+          {/* console.log(user._id); */}
         </Routes>
       </Router>
       {/* <Register/> */}
-   
     </div>
   );
 }
