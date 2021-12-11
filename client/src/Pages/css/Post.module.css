@@ -1,22 +1,22 @@
-.card-post {
+.card_post {
   align-content: center;
   /* margin-top: 53px; */
   border: 1px solid #c51616;
   border-radius: 34px;
   transition: all 1s ease;
-  background-color: #bcc6cf;
-  width: 37%;
+  background-color: #2d846c;
+  width: 35%;
   height: 608px;
   margin-left: 0.2rem;
   margin-top: 40px;
 }
 
-.custom-form {
-  width: 93%;
-  height: 608px;
-  margin-left: 0rem;
-  margin-top: 2rem;
-  padding: 0px 0px 0px 20px;
+.custom_form {
+  width: 39rem;
+  height: 594px;
+  margin-left: 7rem;
+  margin-top: 6rem;
+  padding: 0px 0px 0px 22px;
 }
 
 .card1 {
@@ -53,7 +53,7 @@
   border: 3px solid #035726;
   background-color: #28cf70b3;
   transform: translateY(-5px);
-  transform: scale(1.021,1.041);
+  transform: scale(1.021, 1.041);
 }
 
 .post {
@@ -67,12 +67,13 @@
   font-size: 16px;
   margin: 13px 193px;
   height: 45px;
-  width: 110px;
+  width: 122px;
   transition-duration: 0.4s;
   cursor: pointer;
-  border-radius: 24px;
+  border-radius: 15px;
   color: rgb(46, 42, 42);
   border: 2px solid #4caf50;
+  font-weight: bold;
 }
 
 .post:hover {
@@ -81,14 +82,14 @@
   border: 2px solid #8d1505;
 }
 
-.scroll-post {
+.scroll_post1 {
   /* position: fixed; */
   height: 100vh;
-  width: 66vw;
-  background-color: #00ffc4;
+  width: 64%;
+  background-color: #1e846c;
   border: 1px solid #c51616;
   border-radius: 34px;
   overflow: scroll;
-  margin-left: 562px;
+  margin-left: 37rem;
   margin-top: -608px;
 }

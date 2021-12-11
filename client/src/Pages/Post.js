@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import { useNavigate } from "react-router-dom";
 import NavBarPostPage from "../components/navBarPostPage";
-import css from "./css/Post.css";
+import css from "./css/Post.module.css";
 
 const { Option } = Select;
 
@@ -47,7 +47,6 @@ const Post = () => {
     bagOfBlood: "",
     location: "",
     contact: "",
-    date: new Date(),
   });
 
   const handleChange = (e) => {
@@ -58,6 +57,7 @@ const Post = () => {
       ...post,
       [name]: value,
     });
+    e.target.bagOfBlood="";
   };
 
   const handleChangeSelect = (key, value) => {
@@ -82,6 +82,7 @@ const Post = () => {
     } else {
       alert("Enter All fields");
     }
+   
   };
 
   useEffect(() => {
@@ -90,23 +91,16 @@ const Post = () => {
 
       setPostList(res.data);
     });
-  }, []);
+  },);
 
   return (
     <>
       <NavBarPostPage />
 
       <div>
-        {/* <h1 style={{ color: "green", marginLeft: "50px", marginTop: "15px" }}>
-          Create Post
-        </h1>
-
-        <h1 style={{ color: "green", marginLeft: "700px", marginTop: "-54px" }}>
-          All post
-        </h1> */}
         <div>
-          <div className="card-post">
-            <div className="custom-form">
+          <div className={css.card_post}>
+            <div className={css.custom_form}>
               <Form.Item
                 name="blood"
                 label="Blood group"
@@ -212,22 +206,22 @@ const Post = () => {
               <Form.Item
               // {...tailFormItemLayout}
               >
-                <Button className="post" htmlType="submit" onClick={posting}>
+                <Button className={css.post} htmlType="submit" onClick={posting}>
                   Create Post
                 </Button>
               </Form.Item>
             </div>
           </div>
 
-		  <div className="scroll-post">
+		  <div className={css.scroll_post1}>
           <div className="card-body">
-            <div className="card1">
+            <div className={css.card1}>
               <h1 style={{ color: "white" }}>All Post</h1>
             </div>
             <div className="container">
               {postList.map((val, key) => {
                 return (
-                  <div className="card3" style={{ marginTop: "10px" }} key={key}>
+                  <div className={css.card3} style={{ marginTop: "10px" }} key={key}>
                     <h1>Blood_group: {val.bloodGroup}</h1>
                     <h1>Amount of Blood: {val.bagOfBlood}</h1>
                     <h1>Location: {val.location}</h1>

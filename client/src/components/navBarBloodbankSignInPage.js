@@ -1,13 +1,13 @@
-import React from "react";
-import css from "./navBarFrontPage.module.css";
-import { Layout, Menu, Breadcrumb } from "antd";
-import { useNavigate } from "react-router-dom";
+import React from 'react';
+import css from './navBarBloodbankSignInPage.module.css';
+import { Layout, Menu, Breadcrumb } from 'antd';
+import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 const { Header, Content, Footer } = Layout;
 
 //const { Header, Content, Footer } = Layout;
 
-export default function Navbar() {
+export default function NavbarBloodbankSignInPage() {
 	return (
 		<header className={css.header}>
 		  <div className={css.logo}>Probaho</div>
@@ -21,9 +21,6 @@ export default function Navbar() {
 			  </li>
 			  <li>
 				<Link to='/Login'>Sign In</Link>
-			  </li>
-			  <li>
-				<Link to='/BloodbankSignUpPage'>Blood Bank</Link>
 			  </li>
 			</ul>
 		  </nav>

@@ -5,12 +5,14 @@ import Register from './Pages/Register';
 import Search_Donor from './Pages/Search_Donor';
 import Login from './Pages/Login';
 import Post from './Pages/Post';
-import ShowPost from './Pages/ShowPost';
 import Design from './Pages/FrontPage';
 import Demo from './Pages/Demo';
 import Profile from './Pages/Profile';
 import Edit from './Pages/Edit';
-import Logout from './Pages/Logout';
+import BloodbankSignupPage from './Pages/BloodbankSignupPage';
+import BloodBankProfile from './Pages/BloodBankProfile';
+import BloodbankSignIn from './Pages/BloodbankSignIn';
+
 
 
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
@@ -26,11 +28,13 @@ function App() {
 						<Route path='/Login' element={<Login />} />
 						<Route exact path='/Search_Donor' element={<Search_Donor />} />
 						<Route path='/Post' element={<Post />} />
-						{/* <Route path='/ShowPost' element={<ShowPost />} /> */}
 						<Route path='/Demo' element={<Demo />} />
 						<Route path='/Profile' element={<Profile />}/>
 						<Route path='/Edit' element={<Edit />}/>
-						<Route path='/' element={<Logout />}/>
+						<Route path='/BloodbankSignupPage' element={<BloodbankSignupPage />}/>
+						<Route path='/BloodBankProfile' element={<BloodBankProfile />}/>
+						<Route path='/BloodbankSignIn' element={<BloodbankSignIn />}/>
+
 					</Routes>
 				</Router>
 			

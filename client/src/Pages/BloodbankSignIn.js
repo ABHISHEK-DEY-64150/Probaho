@@ -2,8 +2,8 @@ import Axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Form, Input, Select, Button } from "antd";
-import NavbarSignIn from "../components/navBarSignInPage";
-import css from "./css/Login.module.css";
+import NavbarBloodbankSignIn from "../components/navBarBloodbankSignInPage";
+import css from "./css/BloodbankSignIn.css";
 const { Option } = Select;
 const formItemLayout = {
   labelCol: {
@@ -36,7 +36,7 @@ const tailFormItemLayout = {
   },
 };
 
-const LoginForm = () => {
+const BloodbankSignIn = () => {
   const [form] = Form.useForm();
 
   //   const onFinish = (values) => {
@@ -46,7 +46,7 @@ const LoginForm = () => {
   const navigate = useNavigate();
 
   const [user, setUser] = useState({
-    email: "",
+    username: "",
     password: "",
   });
 
@@ -60,17 +60,17 @@ const LoginForm = () => {
   };
 
   const login = () => {
-    const { email, password } = user;
+    const { username, password } = user;
 
     // console.log(user);
 
-    if (email && password) {
-      if (email) {
-        Axios.post("http://localhost:3001/login", user).then((res) => {
+    if (username && password) {
+      if (username) {
+        Axios.post("http://localhost:3001/loginBloodBank", user).then((res) => {
           if (res.data.message === "login sucessful") {
             alert(res.data.message);
             //setLoginUser(res.data.user);
-            navigate("/Profile");
+            navigate("/BloodBankProfile");
           } else {
             alert(res.data.message);
             //setLoginUser(res.data.user);
@@ -82,32 +82,29 @@ const LoginForm = () => {
     }
   };
 
- 
+  
 
   return (
     <>
-      <NavbarSignIn />
-      <div className={css.signincustom}>
+      <NavbarBloodbankSignIn />
+      <div className="card-signin ">
         <Form.Item
-          name="email"
-          label="E-mail"
+          name="username"
+          label="Username"
           rules={[
-            {
-              type: "email",
-              message: "The input is not valid E-mail!",
-            },
+           
             {
               required: true,
-              message: "Please input your E-mail!",
+              message: "Please input your username!",
             },
           ]}
         >
           <Input
             type="text"
-            name="email"
-            value={user.email}
+            name="username"
+            value={user.username}
             onChange={handleChange}
-            placeholder="Your Email"
+            placeholder="Your username"
           />
         </Form.Item>
 
@@ -132,7 +129,7 @@ const LoginForm = () => {
         </Form.Item>
 
         <Form.Item {...tailFormItemLayout}>
-          <Button className={css.signin} htmlType="submit" onClick={login}>
+          <Button className="signin" htmlType="submit" onClick={login}>
             login
           </Button>
         </Form.Item>
@@ -141,4 +138,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default BloodbankSignIn;

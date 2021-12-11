@@ -1,12 +1,14 @@
-import css from './css/FrontPage.css';
-import { Layout, Menu, Breadcrumb } from 'antd';
-import { useNavigate } from 'react-router-dom';
-import NavBarFrontPage from '../components/navBarFrontPage';
-import Axios from 'axios';
-import React, { useState } from 'react';
-import { DatePicker, Space } from 'antd';
+import css from "./css/FrontPage.module.css";
+import { Layout, Menu, Breadcrumb } from "antd";
+import { useNavigate } from "react-router-dom";
+import NavBarFrontPage from "../components/navBarFrontPage";
+// import MainNavigation from '../components/mainNavigation'
+import Axios from "axios";
+import { BiSearch,RiEmotionSadFill} from "react-icons/all";
+import React, { useState } from "react";
+import { DatePicker, Space } from "antd";
 
-import { Form, Input, Select, Button } from 'antd';
+import { Form, Input, Select, Button } from "antd";
 
 const { Header, Content, Footer } = Layout;
 const { Option } = Select;
@@ -41,7 +43,7 @@ const tailFormItemLayout = {
 	},
 };
 
-let sz = 1;
+let x = 0;
 let data;
 
 export default function Design() {
@@ -52,14 +54,15 @@ export default function Design() {
 		location: '',
 		bloodGroup: '',
 		result: [],
+		result1: [12],
 	});
 
 	const handleChange = (e) => {
 		const { name, value } = e.target;
-		setUser({
-			...user,
+		setUser((prev) => ({
+			...prev,
 			[name]: value,
-		});
+		}));
 		console.log(name, value);
 	};
 
@@ -80,15 +83,18 @@ export default function Design() {
 		//   console.log(this.state)
 		Axios.post('http://localhost:3001/query', user).then((res) => {
 			data = res.data;
-			console.log(data);
-			if (data) {
-				setUser({ result: data });
-			} else {
-				sz = 0;
-			}
-		});
 
-		
+			console.log(data);
+			if (data.length) {
+				setUser((prev) => ({ ...prev, result: data }));
+				x = 1;
+			} else {
+				setUser((prev) => ({ ...prev, result: [] }));
+				setUser((prev) => ({ ...prev, result1: [] }));
+				x = 10;
+			}
+			console.log(x);
+		});
 	};
 
 	return (
@@ -96,10 +102,11 @@ export default function Design() {
 			<NavBarFrontPage />
 			<div>
 				<div>
-					<div className="card-front">
+
+					<div className={css.card_front}>
 						<Form.Item
 							name='City'
-							label="City"
+							label='City'
 							className='ant-form-item-city'
 							rules={[
 								{
@@ -152,26 +159,33 @@ export default function Design() {
 						</Form.Item>
 
 						<Form.Item {...tailFormItemLayout}>
-							<Button   className='search' htmlType='submit' onClick={search}>
-								Search
+							<Button className={css.search} htmlType='submit' onClick={search}>
+								Search <div className={css.icon}><BiSearch/></div>
 							</Button>
 						</Form.Item>
 						{/* </Form> */}
 					</div>
 
-					<div>
-						{user.result.map((val, key) => {
-							return (
-								<div className='query-result'
-									key={key}>
-									<h1 className='query-result-name'>Name:{val.name}</h1>
-									<h1 className='query-result-email'>email:{val.email}</h1>
-									<h1 className='query-result-phone'>Phone:{val.phone}</h1>
-									<h1 className='query-result-location'>Location:{val.location}</h1>
-								</div>
-							);
-						})}
-					</div>
+					{user?.result?.length ? (
+						<div>
+							{user.result.map((val, key) => {
+								return (
+									<div className={css.query_result} key={key}>
+										<h1 className={css.query_result_name}>Name:{val.name}</h1>
+										<h1 className={css.query_result_name}>email:{val.email}</h1>
+										<h1 className={css.query_result_name}>Phone:{val.phone}</h1>
+										<h1 className={css.query_result_name}>
+											Location:{val.location}
+										</h1>
+									</div>
+								);
+							})}
+						</div>
+					) : user?.result1?.length ? (
+						<div></div>
+					) : (
+						<div className={css.no_one}><p>No one found <div className={css.icon1}><RiEmotionSadFill/></div></p></div>
+					)}
 				</div>
 			</div>
 		</>

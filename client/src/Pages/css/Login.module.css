@@ -1,0 +1,49 @@
+.signincustom{
+	background-color: #dbd7d661;
+	width: 49rem;
+	margin-left: 26rem;
+	padding-left: 15rem;
+	padding-right: 0rem;
+	padding-top: 1rem;
+	border: 1px solid #dbd7d661;
+	border-radius: 34px;
+	transition: all 0.3s linear;
+	margin-top: 6rem
+
+}
+.signincustom:hover {
+	/* width: 1300px;
+	height: 300px; */
+
+	transform: scale(1.011, 1.011);
+}
+
+
+
+.signin {
+	background-color: #d2e9d3;
+	border: none;
+	color: rgba(124, 160, 69, 0.8);
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: larger;
+	margin: auto;
+	height: 45px;
+	width: 110px;
+	transition-duration: 0.4s;
+	cursor: pointer;
+	border-radius: 24px;
+	color: rgb(19, 18, 18);
+	border: 2px solid #4caf50;
+	font-weight: bold;
+}
+
+.signin:hover {
+	background-color: rgba(122, 235, 127, 0.692);
+	color: black;
+	border: 2px solid #035726;
+}
+
+
+

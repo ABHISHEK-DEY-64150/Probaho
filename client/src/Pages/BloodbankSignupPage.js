@@ -2,8 +2,8 @@ import Axios from 'axios';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { DatePicker, Space } from 'antd';
-import NavBarSignUp from '../components/navBarSignUpPage';
-import css from './css/SignUpPage.module.css';
+import NavBarBloodbankSignUp from '../components/navBarBloodbankSignUpPage';
+import css from "./css/BloodbankSignupPage.module.css";
 
 import { Form, Input, Select, Button } from 'antd';
 const { Option } = Select;
@@ -38,21 +38,29 @@ const tailFormItemLayout = {
 	// },
 };
 
-const RegistrationForm = () => {
+const BloodbankSignUpPage = () => {
+
+
 	const [form] = Form.useForm();
 
-	const navigate = useNavigate();
+	// const navigate = useNavigate();
 
 	const [user, setUser] = useState({
 		name: '',
+        username:'',
 		email: '',
 		password: '',
 		reEnterPassword: '',
 		location: '',
 		phone: '',
-		gender: '',
-		lastDonation: '',
-		bloodGroup: '',
+        aPos:'0',
+        bPos:'0',
+        oPos:'0',
+        abPos:'0',
+        aNeg:'0',
+        bNeg:'0',
+        oNeg:'0',
+        abNeg:'0',
 	});
 
 	const handleChange = (e) => {
@@ -77,14 +85,21 @@ const RegistrationForm = () => {
 
 		const {
 			name,
+            username,
 			email,
 			password,
 			reEnterPassword,
 			location,
 			phone,
-			gender,
-			bloodGroup,
-			lastDonation,
+            aPos,
+            bPos,
+            oPos,
+            abPos,
+            aNeg,
+            bNeg,
+            oNeg,
+            abNeg
+
 		} = user;
 
 		// && location && gender && bloodGroup && lastDonation
@@ -92,12 +107,14 @@ const RegistrationForm = () => {
 		if (name && email && password && reEnterPassword && phone) {
 			console.log(user);
 			if (password === reEnterPassword) {
-				Axios.post('http://localhost:3001/register', user).then((res) => {
-					//alert(res.data.message);
-					// setLoginUser(res.data.user);
-					navigate('/login');
-					console.log(res.data.message);
-				});
+				Axios.post('http://localhost:3001/registerBloodBank', user).then(
+					(res) => {
+						//alert(res.data.message);
+						// setLoginUser(res.data.user);
+						// navigate('/login');
+						console.log(res.data.message);
+					}
+				);
 			} else {
 				alert('password does not match');
 			}
@@ -108,16 +125,17 @@ const RegistrationForm = () => {
 
 	return (
 		<>
-			<NavBarSignUp />
+			<NavBarBloodbankSignUp />
 
 			<h1 style={{ textAlign: 'center', color: 'red' }}>
-				Signup as Blood Donor
+				Signup as Blood Bank
 			</h1>
-			<div>
-				<div className={css.signupcustom}>
+			<div className={css.banksignupcustom}>
+				
 					<Form.Item
 						name='name'
 						label='Name'
+						className='form-item'
 						rules={[
 							{
 								required: true,
@@ -132,7 +150,30 @@ const RegistrationForm = () => {
 							placeholder='Your Name'
 						/>
 					</Form.Item>
+				
 
+				
+					<Form.Item
+						name='username'
+						label='Username'
+						className='form-item'
+						rules={[
+							{
+								required: true,
+								message: 'Please enter your username',
+							},
+						]}>
+						<Input
+							type='text'
+							name='username'
+							value={user.name}
+							onChange={handleChange}
+							placeholder='Your Username'
+						/>
+					</Form.Item>
+			
+
+				
 					<Form.Item
 						name='email'
 						label='E-mail'
@@ -155,7 +196,9 @@ const RegistrationForm = () => {
 							placeholder='Your Email'
 						/>
 					</Form.Item>
+			
 
+			
 					<Form.Item
 						name='password'
 						label='Password'
@@ -175,7 +218,7 @@ const RegistrationForm = () => {
 							placeholder='Your Password'
 						/>
 					</Form.Item>
-
+			
 					<Form.Item
 						name='confirm'
 						label='Confirm Password'
@@ -208,7 +251,7 @@ const RegistrationForm = () => {
 							placeholder='Confirm your password'
 						/>
 					</Form.Item>
-
+			
 					<Form.Item
 						name='City'
 						label='Ciry'
@@ -235,98 +278,41 @@ const RegistrationForm = () => {
 						</Select>
 					</Form.Item>
 
-					<Form.Item
-						name='phone'
-						label='Phone Number'
-						rules={[
-							{
-								required: true,
-								message: 'Please input your phone number!',
-							},
-						]}>
-						<Input
-							//   addonBefore={prefixSelector}
-							style={{
-								width: '100%',
-							}}
-							type='text'
+					
+						<Form.Item
 							name='phone'
-							value={user.phone}
-							onChange={handleChange}
-							placeholder='Your phone number'
-						/>
-					</Form.Item>
+							label='Phone Number'
+							rules={[
+								{
+									required: true,
+									message: 'Please input your phone number!',
+								},
+							]}>
+							<Input
+								//   addonBefore={prefixSelector}
+								style={{
+									width: '100%',
+								}}
+								type='text'
+								name='phone'
+								value={user.phone}
+								onChange={handleChange}
+								placeholder='Your phone number'
+							/>
+						</Form.Item>
 
-					<Form.Item
-						name='gender'
-						label='Gender'
-						rules={[
-							{
-								required: true,
-								message: 'Please select gender!',
-							},
-						]}>
-						<Select
-							type='text'
-							name='gender'
-							value={user.gender}
-							onChange={(value) => handleChangeSelect('gender', value)}
-							placeholder='select your gender'>
-							<Option value='male'>Male</Option>
-							<Option value='female'>Female</Option>
-							<Option value='other'>Other</Option>
-						</Select>
-					</Form.Item>
-					<Form.Item
-						name='blood'
-						label='Blood group'
-						rules={[
-							{
-								required: true,
-								message: 'Please select blood group!',
-							},
-						]}>
-						<Select
-							type='text'
-							name='blood'
-							value={user.bloodGroup}
-							onChange={(value) => handleChangeSelect('bloodGroup', value)}
-							placeholder='select blood group'>
-							<Option value='A+'>A+</Option>
-							<Option value='B+'>B+</Option>
-							<Option value='O+'>O+</Option>
-							<Option value='AB+'>AB+</Option>
-							<Option value='A-'>A-</Option>
-							<Option value='B-'>B-</Option>
-							<Option value='O-'>O-</Option>
-							<Option value='AB-'>AB-</Option>
-						</Select>
-					</Form.Item>
-
-					<Form.Item
-						name='lastDonation'
-						label='Last Blood Donation'
-						rules={[
-							{
-								required: true,
-								message: 'Please input date!',
-							},
-						]}>
-						<DatePicker
-							name='lastDonation'
-							value={user.lastDonation}
-							onChange={(value) => handleChangeSelect('lastDonation', value)}
-						/>
-					</Form.Item>
-					<Form.Item {...tailFormItemLayout}>
-						<Button className={css.signup} htmlType='submit' onClick={register}>
-							Sign Up
-						</Button>
-					</Form.Item>
-				</div>
+					
+							<Form.Item >
+								<Button className={css.signup} htmlType='submit'onClick={register}>
+									Sign Up
+								</Button>
+							</Form.Item>
+					
+					
+				
 			</div>
 		</>
 	);
 };
 
-export default RegistrationForm;
+export default BloodbankSignUpPage;
