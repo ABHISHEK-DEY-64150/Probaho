@@ -1,4 +1,4 @@
-.card-profile {
+.card_profile {
   align-content: center;
   /* margin-top: 53px; */
   border: 1px solid #c51616;
@@ -8,7 +8,7 @@
   justify-content: center;
   width: 549px;
   height: 608px;
-  margin-left: 0px;
+  margin-left: -9rem;
   margin-top: 40px;
   
 
@@ -33,7 +33,7 @@
 	background-color: #09bd54b3;
 	
 }
-.custom-profile {
+.custom_profile {
   width: 549px;
   height: 608px;
   margin-left: 2rem;
@@ -149,16 +149,15 @@
   border: 2px solid #035726;
 }
 
-.scroll-post {
-  /* position: fixed; */
+.scroll_post {
   height: 100vh;
-  width: 66vw;
+  width: 54vw;
   background-color: #1e846c;
   border: 1px solid #c51616;
   border-radius: 34px;
   overflow: scroll;
-  margin-left: 562px;
-  margin-top: -608px;
+  margin-left: 30rem;
+  margin-top: -608px
 }
 
 .edit-info {
@@ -208,4 +207,9 @@ height: 50wh; */
   margin-left: 16px;
   vertical-align: top;
   transition: margin-bottom 0.3s 0.017s linear;
+}
+
+
+.modal_design{
+  color: #035726;
 }

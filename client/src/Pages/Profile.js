@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import NavbarProfile from "../components/navBarProfilePage";
-import css from "./css/Profile.css";
+import css from "./css/Profile.module.css";
 import { useNavigate } from "react-router-dom";
 
 import { Modal } from "antd";
@@ -88,24 +88,34 @@ const Profile = () => {
       <NavbarProfile />
 
       <div className="container">
-        <div className="card-profile">
+        <div className={css.card_profile}>
           {postList.map((val, key) => {
             return (
               <div
-                className="custom-profile"
+                className={css.custom_profile}
                 style={{ marginTop: "10px" }}
                 key={key}
               >
-                <div className="card2">
+                <div className={css.card2}>
                   <h1 style={{ color: "white" }}>Profile</h1>
                 </div>
-                <div className="name"><p>Name:{val.name}</p></div>
-				<div className="name"><p>Contact_no:{val.phone}</p></div>
-				<div className="name"><p>Blood_group:{val.bloodGroup}</p></div>
-				<div className="name"><p>Last Blood Donation :{val.lastDonation}</p></div>
-				<div className="name"><p>Location:{val.location}</p></div>
+                <div className={css.name}>
+                  <p>Name:{val.name}</p>
+                </div>
+                <div className={css.name}>
+                  <p>Contact_no:{val.phone}</p>
+                </div>
+                <div className={css.name}>
+                  <p>Blood_group:{val.bloodGroup}</p>
+                </div>
+                <div className={css.name}>
+                  <p>Last Blood Donation :{val.lastDonation}</p>
+                </div>
+                <div className={css.name}>
+                  <p>Location:{val.location}</p>
+                </div>
 
-                <button type="submit" className="edit" onClick={editing}>
+                <button type="submit" className={css.edit} onClick={editing}>
                   Edit Profile
                 </button>
               </div>
@@ -113,15 +123,19 @@ const Profile = () => {
           })}
         </div>
 
-        <div className="scroll-post">
+        <div className={css.scroll_post}>
           <div className="card-body">
-            <div className="card1">
+            <div className={css.card1}>
               <h1 style={{ color: "white" }}>All Post</h1>
             </div>
             <div className="container">
               {postList1.map((val, key) => {
                 return (
-                  <div className="card" style={{ marginTop: "10px" }} key={key}>
+                  <div
+                    className={css.card}
+                    style={{ marginTop: "10px" }}
+                    key={key}
+                  >
                     <h1>Blood_group: {val.bloodGroup}</h1>
                     <h1>Amount of Blood: {val.bagOfBlood}</h1>
                     <h1>Location: {val.location}</h1>
@@ -136,6 +150,7 @@ const Profile = () => {
         <div>
           <Modal
             title="Update your Profile"
+           
             visible={open}
             // onOk={handleOk}
             // onCancel={handleCancel}
@@ -147,7 +162,7 @@ const Profile = () => {
             ]}
           >
             <div>
-              <div>
+              <div  className={css.modal_design}>
                 <Form.Item
                   name="City"
                   label="City"

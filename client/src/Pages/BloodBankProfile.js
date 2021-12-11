@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
 import NavBarBloodbankProfile from '../components/navBarBloodbankProfile';
-import css from './css/Profile.css';
+import css from './css/Profile.module.css';
 import { useNavigate } from 'react-router-dom';
 
 import { Modal } from 'antd';
@@ -106,7 +106,7 @@ const BloodBankProfile = () => {
 			// console.log(res.data);
 			setProfile(res.data);
 		});
-	});
+	},[]);
 
 	//[] removed
 
@@ -139,7 +139,7 @@ const BloodBankProfile = () => {
 								style={{ marginTop: '10px' }}
 								key={key}>
 								<div className='card2'>
-									<h1 style={{ color: 'white' }}>Profile</h1>
+									<h1 style={{ color: 'white' }}>Blood Collection</h1>
 								</div>
 								<div className='name'>
 									<p>A+:{val.aPos}</p>
