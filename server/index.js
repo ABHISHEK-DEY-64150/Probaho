@@ -310,7 +310,7 @@ app.post("/post", async (req, res) => {
     },
     (e, result) => {
       if (result) {
-        console.log(result[0].email);
+        // console.log(result[0].email);
 
         var transporter = nodemailer.createTransport({
           service: "gmail",
@@ -339,7 +339,7 @@ app.post("/post", async (req, res) => {
         }
       }
     }
-  ); 
+  );
 
   res.send({ message: "post sucessful", post: post });
 });

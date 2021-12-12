@@ -10,28 +10,24 @@
   height: 608px;
   margin-left: -9rem;
   margin-top: 40px;
-  
-
 }
 
-.name{
-	
-	font-weight: bold;
-	font-size: x-large;
-	transition: all 0.5s ease;
+.name {
+  font-weight: bold;
+  font-size: x-large;
+  transition: all 0.5s ease;
 }
-.name:hover{
-	/* font-weight: bolder; */
-	font-size: xx-large;
+.name:hover {
+  /* font-weight: bolder; */
+  font-size: xx-large;
 }
 
 .profile:hover {
-	/* width: 1300px;
+  /* width: 1300px;
 	height: 300px; */
-	font-size: larger;
-	border: 3px solid #035726;
-	background-color: #09bd54b3;
-	
+  font-size: larger;
+  border: 3px solid #035726;
+  background-color: #09bd54b3;
 }
 .custom_profile {
   width: 549px;
@@ -40,7 +36,6 @@
   margin-top: 76px;
   padding: 0px 0px 0px 20px;
 }
-
 
 .container {
   margin-top: 0px;
@@ -62,18 +57,18 @@
 }
 
 .card2 {
-	/* flex-basis: 45%; */
-	padding: 0rem;
-	padding-top: 0rem;
-	padding-right: 0rem;
-	padding-bottom: 0rem;
-	padding-left: 0rem;
-	text-align: left;
-	color: white;
-	font-size: large;
-	text-decoration: none;
-	transition: all 1s ease;
-  }
+  /* flex-basis: 45%; */
+  padding: 0rem;
+  padding-top: 0rem;
+  padding-right: 0rem;
+  padding-bottom: 0rem;
+  padding-left: 0rem;
+  text-align: left;
+  color: white;
+  font-size: large;
+  text-decoration: none;
+  transition: all 1s ease;
+}
 
 .PageLayout {
   height: 10vh;
@@ -104,43 +99,43 @@
   flex-basis: 45%;
   padding: 1.5rem;
   text-align: center;
-  background-color: #1e846c;;
+  background-color: #1e846c;
   text-decoration: none;
   border: 1px solid #0e8532;
   border-radius: 10px;
   transition: all 1s ease;
-  font-size: larger
+  font-size: larger;
 }
 
 .card:hover {
-	/* width: 1300px;
+  /* width: 1300px;
 	height: 300px; */
-	border: 3px solid #035726;
-	background-color: #09bd54b3;
-	transform: scale(1.021,1.041);
+  border: 3px solid #035726;
+  background-color: #09bd54b3;
+  transform: scale(1.021, 1.041);
 }
 
 .edit {
-    background-color: #d2e9d3;
-    border: none;
-    color: rgba(124, 160, 69, 0.8);
-    padding: 10px 10px 10px 10px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 0px 229px;
-        margin-top: 0px;
-        margin-right: 229px;
-        margin-bottom: 0px;
-        margin-left: 229px;
-    height: 45px;
-    width: 110px;
-    transition-duration: 0.4s;
-    cursor: pointer;
-    border-radius: 24px;
-    color: rgb(32, 74, 58);
-    border: 2px solid #4caf50;
+  background-color: #d2e9d3;
+  border: none;
+  color: rgba(124, 160, 69, 0.8);
+  padding: 10px 10px 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 0px 229px;
+  margin-top: 0px;
+  margin-right: 229px;
+  margin-bottom: 0px;
+  margin-left: 229px;
+  height: 45px;
+  width: 110px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 24px;
+  color: rgb(32, 74, 58);
+  border: 2px solid #4caf50;
 }
 
 .edit:hover {
@@ -157,10 +152,10 @@
   border-radius: 34px;
   overflow: scroll;
   margin-left: 30rem;
-  margin-top: -608px
+  margin-top: -608px;
 }
 
-.edit-info {
+.edit_info {
   margin-left: 100px;
 
   /* width : 50wh;
@@ -209,7 +204,6 @@ height: 50wh; */
   transition: margin-bottom 0.3s 0.017s linear;
 }
 
-
-.modal_design{
-  color: #035726;
+.modal_design {
+  margin-left: 7rem
 }

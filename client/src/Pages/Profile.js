@@ -3,6 +3,8 @@ import Axios from "axios";
 import NavbarProfile from "../components/navBarProfilePage";
 import css from "./css/Profile.module.css";
 import { useNavigate } from "react-router-dom";
+// import Modal from "react-bootstrap/Modal";
+// import Select from "react-bootstrap/FormSelect";
 
 import { Modal } from "antd";
 import { Form, Input, Select, Button, DatePicker } from "antd";
@@ -12,6 +14,10 @@ const Profile = () => {
   const [postList, setPostList] = useState([]);
   const [postList1, setPostList1] = useState([]);
   const navigate = useNavigate();
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   const [user, setUser] = useState({
     location: "",
@@ -52,6 +58,7 @@ const Profile = () => {
       });
     }
     setOpen(false);
+    // handleClose();
   };
 
   const handleCancel = () => {
@@ -147,10 +154,11 @@ const Profile = () => {
           </div>
         </div>
 
+        <div></div>
+
         <div>
           <Modal
             title="Update your Profile"
-           
             visible={open}
             // onOk={handleOk}
             // onCancel={handleCancel}
@@ -161,88 +169,51 @@ const Profile = () => {
               </Button>,
             ]}
           >
-            <div>
-              <div  className={css.modal_design}>
-                <Form.Item
-                  name="City"
-                  label="City"
-                  className="edit-info"
-                  // rules={[
-                  // 	{
-                  // 		required: true,
-                  // 		message: 'Please select City!',
-                  // 	},
-                  // ]}
+            <div className={css.modal_design}>
+              <Form.Item name="City" label="City">
+                <Select
+                  type="text"
+                  name="location"
+                  value={user.location}
+                  onChange={(value) => handleChangeSelect("location", value)}
+                  placeholder="Select Your City"
                 >
-                  <Select
-                    type="text"
-                    name="location"
-                    value={user.location}
-                    onChange={(value) => handleChangeSelect("location", value)}
-                    placeholder="Select Your City"
-                  >
-                    <Select.Option value="Dhaka">Dhaka</Select.Option>
-                    <Select.Option value="Sylhet">Sylhet</Select.Option>
-                    <Select.Option value="Chittagong">Chittagong</Select.Option>
-                    <Select.Option value="Comilla">Comilla</Select.Option>
-                    <Select.Option value="Rajshahi">Rajshahi</Select.Option>
-                    <Select.Option value="Rangpur">Rangpur</Select.Option>
-                    <Select.Option value="Barishal">Barishal</Select.Option>
-                    <Select.Option value="Brahminbaria">
-                      Brahminbaria
-                    </Select.Option>
-                  </Select>
-                </Form.Item>
-              </div>
+                  <Select.Option value="Dhaka">Dhaka</Select.Option>
+                  <Select.Option value="Sylhet">Sylhet</Select.Option>
+                  <Select.Option value="Chittagong">Chittagong</Select.Option>
+                  <Select.Option value="Comilla">Comilla</Select.Option>
+                  <Select.Option value="Rajshahi">Rajshahi</Select.Option>
+                  <Select.Option value="Rangpur">Rangpur</Select.Option>
+                  <Select.Option value="Barishal">Barishal</Select.Option>
+                  <Select.Option value="Brahminbaria">
+                    Brahminbaria
+                  </Select.Option>
+                </Select>
+              </Form.Item>
 
-              <div>
-                <Form.Item
+              <Form.Item name="phone" label="Phone Number">
+                <Input
+                  //   addonBefore={prefixSelector}
+                  style={{
+                    width: "100%",
+                  }}
+                  type="text"
                   name="phone"
-                  label="Phone Number"
-                  className="edit-info"
-                  // rules={[
-                  // 	{
-                  // 		required: true,
-                  // 		message: 'Please input your phone number!',
-                  // 	},
-                  // ]}
-                >
-                  <Input
-                    //   addonBefore={prefixSelector}
-                    style={{
-                      width: "100%",
-                    }}
-                    type="text"
-                    name="phone"
-                    value={user.phone}
-                    onChange={handleChange}
-                    placeholder="Your phone number"
-                  />
-                </Form.Item>
-              </div>
+                  value={user.phone}
+                  onChange={handleChange}
+                  placeholder="Your phone number"
+                />
+              </Form.Item>
 
-              <div>
-                <Form.Item
+              <Form.Item name="lastDonation" label="Last Blood Donation">
+                <DatePicker
                   name="lastDonation"
-                  label="Last Blood Donation"
-                  className="edit-info"
-                  // rules={[
-                  // 	{
-                  // 		required: true,
-                  // 		message: 'Please input date!',
-                  // 	},
-                  // ]}
-                >
-                  <DatePicker
-                    name="lastDonation"
-                    className="edit-info"
-                    value={user.lastDonation}
-                    onChange={(value) =>
-                      handleChangeSelect("lastDonation", value)
-                    }
-                  />
-                </Form.Item>
-              </div>
+                  value={user.lastDonation}
+                  onChange={(value) =>
+                    handleChangeSelect("lastDonation", value)
+                  }
+                />
+              </Form.Item>
             </div>
           </Modal>
         </div>
