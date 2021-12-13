@@ -85,7 +85,7 @@ npm run devStart
 Probaho <b>[ [watch now](https://youtu.be/0uX4cQpkpTg) ] </b>
 
 
-# Some Snapshots:
+# Some Screenshots:
 
 <p  align="center"  >
 <img  src="Project Pictures/Screenshot from 2021-12-13 22-34-52.png"  height = "400"/> </p>
