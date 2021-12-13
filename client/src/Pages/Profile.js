@@ -84,7 +84,7 @@ const Profile = () => {
   };
 
   useEffect(() => {
-    Axios.get("http://localhost:3001/showPost").then((res) => {
+    Axios.get("http://localhost:3001/allevents").then((res) => {
       console.log(res.data);
       setPostList1(res.data);
     });
@@ -133,7 +133,7 @@ const Profile = () => {
         <div className={css.scroll_post}>
           <div className="card-body">
             <div className={css.card1}>
-              <h1 style={{ color: "white" }}>All Post</h1>
+              <h1 style={{ color: "white" }}>Events Nearby you</h1>
             </div>
             <div className="container">
               {postList1.map((val, key) => {
@@ -143,10 +143,10 @@ const Profile = () => {
                     style={{ marginTop: "10px" }}
                     key={key}
                   >
-                    <h1>Blood_group: {val.bloodGroup}</h1>
-                    <h1>Amount of Blood: {val.bagOfBlood}</h1>
-                    <h1>Location: {val.location}</h1>
-                    <h1>Contact_no: {val.contact}</h1>
+                    <h1>Blood Bank Name: {val.creator}</h1>
+                    <h1>Event Title: {val.title}</h1>
+                    <h1>Location: {val.place}</h1>
+                    <h1>Description: {val.description}</h1>
                   </div>
                 );
               })}

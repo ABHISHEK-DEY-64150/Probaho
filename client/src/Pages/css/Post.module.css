@@ -12,11 +12,11 @@
 }
 
 .custom_form {
-  width: 39rem;
+  width: 35rem;
   height: 594px;
-  margin-left: 7rem;
+  
   margin-top: 6rem;
-  padding: 0px 0px 0px 22px;
+  padding: 0px 5px 0px 5px
 }
 
 .card1 {

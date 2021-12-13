@@ -19,6 +19,10 @@ const Eventinfo = new mongoose.Schema({
 		type: String,
 		required: true,
 	},
+	creator:{
+		type:String,
+		required:true,
+	}
 	
 });
 

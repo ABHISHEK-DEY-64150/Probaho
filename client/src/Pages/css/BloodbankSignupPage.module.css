@@ -1,15 +1,14 @@
 .banksignupcustom{
 
-
     background-color: #dbd7d661;
     width: 65rem;
-    margin-left: 24rem;
-    padding-left: 13rem;
-    padding-right: 0rem;
-    padding-top: 1rem;
+    margin-left: 22.7rem;
+    padding-left: 9rem;
+    padding-right: 11rem;
+    padding-top: 2rem;
     border: 1px solid #dbd7d661;
     border-radius: 34px;
-    transition: all 0.3s ease;
+    transition: all 0.3s ease
 
 }
 .banksignupcustom:hover {

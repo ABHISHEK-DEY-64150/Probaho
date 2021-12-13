@@ -99,7 +99,7 @@
   flex-basis: 45%;
   padding: 1.5rem;
   text-align: center;
-  background-color: #1e846c;
+  background-color: #ffffff;
   text-decoration: none;
   border: 1px solid #0e8532;
   border-radius: 10px;
@@ -207,3 +207,21 @@ height: 50wh; */
 .modal_design {
   margin-left: 7rem
 }
+
+
+.table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+.tr:nth-child(even) {
+  background-color: #dddddd;
+}
+

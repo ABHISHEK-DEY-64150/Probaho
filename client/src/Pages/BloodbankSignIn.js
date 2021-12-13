@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Form, Input, Select, Button } from "antd";
 import NavbarBloodbankSignIn from "../components/navBarBloodbankSignInPage";
-import css from "./css/BloodbankSignIn.css";
+import css from "./css/BloodbankSignIn.module.css";
 const { Option } = Select;
 const formItemLayout = {
   labelCol: {
@@ -87,7 +87,7 @@ const BloodbankSignIn = () => {
   return (
     <>
       <NavbarBloodbankSignIn />
-      <div className="card-signin ">
+      <div className={css.signincustom }>
         <Form.Item
           name="username"
           label="Username"
@@ -129,7 +129,7 @@ const BloodbankSignIn = () => {
         </Form.Item>
 
         <Form.Item {...tailFormItemLayout}>
-          <Button className="signin" htmlType="submit" onClick={login}>
+          <Button className={css.signin} htmlType="submit" onClick={login}>
             login
           </Button>
         </Form.Item>

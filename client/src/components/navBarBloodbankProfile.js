@@ -16,12 +16,13 @@ export default function NavbarBloodBankProfile() {
 		  <div className={css.logo}>Probaho</div>
 		  <nav>
 			<ul>
+				 <li>
+				<Link to='/'>Home</Link>
+			  </li>
 			  <li>
 				<Link to='/Post'>Post</Link>
 			  </li>
-			  <li>
-				<Link to='/'>Home</Link>
-			  </li>
+			 
 			  <li>
 				<Link to='/'>Logout</Link>
 			  </li>

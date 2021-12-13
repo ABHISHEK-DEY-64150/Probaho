@@ -43,7 +43,7 @@ const BloodbankSignUpPage = () => {
 
 	const [form] = Form.useForm();
 
-	// const navigate = useNavigate();
+	const navigate = useNavigate();
 
 	const [user, setUser] = useState({
 		name: '',
@@ -109,10 +109,10 @@ const BloodbankSignUpPage = () => {
 			if (password === reEnterPassword) {
 				Axios.post('http://localhost:3001/registerBloodBank', user).then(
 					(res) => {
-						//alert(res.data.message);
+						alert(res.data.message);
 						// setLoginUser(res.data.user);
-						// navigate('/login');
-						console.log(res.data.message);
+						navigate('/BloodbankSignIn');
+						// console.log(res.data.message);
 					}
 				);
 			} else {
