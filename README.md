@@ -82,7 +82,7 @@ npm run devStart
 
 
 # Video Link of the project:
-Probaho <b>[ [watch now](https://drive.google.com/file/d/1hkTo3TQPlcCW7rbb_miuqVedgGmBoSdn/view?fbclid=IwAR2kUVlEqZJNQfzi5sTp88vfBno8eDzKLuE4LiwbGj1Kwb0ACPvR_6X7_Vk) ] </b>
+Probaho <b>[ [watch](https://drive.google.com/file/d/1hkTo3TQPlcCW7rbb_miuqVedgGmBoSdn/view?fbclid=IwAR2kUVlEqZJNQfzi5sTp88vfBno8eDzKLuE4LiwbGj1Kwb0ACPvR_6X7_Vk) ] </b>
 
 
 # Some Screenshots:
