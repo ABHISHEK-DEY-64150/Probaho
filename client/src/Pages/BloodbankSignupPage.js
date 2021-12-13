@@ -254,7 +254,7 @@ const BloodbankSignUpPage = () => {
 			
 					<Form.Item
 						name='City'
-						label='Ciry'
+						label='City'
 						rules={[
 							{
 								required: true,

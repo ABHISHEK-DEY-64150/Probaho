@@ -3,6 +3,7 @@ import Axios from "axios";
 import NavbarProfile from "../components/navBarProfilePage";
 import css from "./css/Profile.module.css";
 import { useNavigate } from "react-router-dom";
+import { AiFillEdit } from 'react-icons/all';
 // import Modal from "react-bootstrap/Modal";
 // import Select from "react-bootstrap/FormSelect";
 
@@ -104,7 +105,7 @@ const Profile = () => {
                 key={key}
               >
                 <div className={css.card2}>
-                  <h1 style={{ color: "white" }}>Profile</h1>
+                  <h1 style={{ color: "black",fontFamily:"system-ui" }}>Profile</h1>
                 </div>
                 <div className={css.name}>
                   <p>Name:{val.name}</p>
@@ -123,7 +124,7 @@ const Profile = () => {
                 </div>
 
                 <button type="submit" className={css.edit} onClick={editing}>
-                  Edit Profile
+                  Edit Profile <div className={css.icon}> <AiFillEdit/></div>
                 </button>
               </div>
             );
@@ -133,7 +134,7 @@ const Profile = () => {
         <div className={css.scroll_post}>
           <div className="card-body">
             <div className={css.card1}>
-              <h1 style={{ color: "white" }}>Events Nearby you</h1>
+              <h1 style={{ color: "black",fontFamily:"system-ui" }}>Events Nearby you</h1>
             </div>
             <div className="container">
               {postList1.map((val, key) => {
@@ -143,10 +144,10 @@ const Profile = () => {
                     style={{ marginTop: "10px" }}
                     key={key}
                   >
-                    <h1>Blood Bank Name: {val.creator}</h1>
-                    <h1>Event Title: {val.title}</h1>
-                    <h1>Location: {val.place}</h1>
-                    <h1>Description: {val.description}</h1>
+                    <p className={css.name}>Blood Bank Name: {val.creator}</p>
+                    <p className={css.name}>Event Title: {val.title}</p>
+                    <p className={css.name}>Location: {val.place}</p>
+                    <p className={css.name}>Description: {val.description}</p>
                   </div>
                 );
               })}
@@ -165,11 +166,11 @@ const Profile = () => {
             footer={[
               <Button onClick={handleCancel}>Cancel</Button>,
               <Button type="primary" onClick={handleOk}>
-                UpDate
+                Update
               </Button>,
             ]}
           >
-            <div className={css.modal_design}>
+            <div>
               <Form.Item name="City" label="City">
                 <Select
                   type="text"

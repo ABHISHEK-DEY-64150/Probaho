@@ -3,7 +3,7 @@ import Axios from 'axios';
 import NavBarBloodbankProfile from '../components/navBarBloodbankProfile';
 import css from './css/BloodBankProfile.module.css';
 import { useNavigate } from 'react-router-dom';
-
+import { IoIosAddCircle,AiFillEdit } from 'react-icons/all';
 import { Modal } from 'antd';
 import { Form, Input, Select, Button, DatePicker } from 'antd';
 const { TextArea } = Input;
@@ -179,59 +179,40 @@ const BloodBankProfile = () => {
 										<td>{val.abNeg}</td>
 									</tr>
 								</table>
-							</div>
 
-							// <div
-							// 	className={css.custom_profile}
-							// 	style={{ marginTop: '10px' }}
-							// 	key={key}>
-							// 	<div className={css.card2}>
-							// 		<h1 style={{ color: 'white' }}>Blood Collection</h1>
-							// 	</div>
-							// 	<div className={css.name}>
-							// 		<p>A+:{val.aPos}</p>
-							// 	</div>
-							// 	<div className={css.name}>
-							// 		<p>A-:{val.aNeg}</p>
-							// 	</div>
-							// 	<div className={css.name}>
-							// 		<p>B+:{val.bPos}</p>
-							// 	</div>
-							// 	<div className={css.name}>
-							// 		<p>B- :{val.bNeg}</p>
-							// 	</div>
-							// 	<div className={css.name}>
-							// 		<p>O+:{val.oPos}</p>
-							// 	</div>
-							// 	<div className={css.name}>
-							// 		<p>O-:{val.oNeg}</p>
-							// 	</div>
-							// 	<div className={css.name}>
-							// 		<p>AB+:{val.abPos}</p>
-							// 	</div>
-							// 	<div className={css.name}>
-							// 		<p>AB-:{val.abNeg}</p>
-							// 	</div>
-							// </div>
+								<button type='submit' className={css.edit} onClick={editing}>
+									Edit Collection <div className={css.iconE}><AiFillEdit/></div>
+								</button>
+							</div>
 						);
 					})}
 
-					<button type='submit' className={css.edit} onClick={editing}>
+					{/* <button type='submit' className={css.edit} onClick={editing}>
 						Edit Collection
 					</button>
 					<button
 						style={{ marginTop: '20px' }}
 						type='submit'
-						className={css.edit}
+						className={css.event}
 						onClick={createEvenet}>
 						Create Event
-					</button>
+					</button> */}
 				</div>
 
 				<div className={css.scroll_post}>
-					<div className='card1'>
-						<h1 style={{ color: 'white' }}>All Events</h1>
+					<div>
+						<h1 style={{ marginLeft: '2rem',marginTop:"1rem"}}>Your Events </h1>
 					</div>
+					<div className={css.evntpos}>
+						<button type='submit' className={css.event} onClick={createEvenet}>
+							Create Event{' '}
+							<div className={css.icon}>
+								<IoIosAddCircle />
+							</div>
+						</button>
+					</div>
+
+					<div className='card1'></div>
 					<div className='container'>
 						{postList1.map((val, key) => {
 							return (

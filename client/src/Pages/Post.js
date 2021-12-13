@@ -4,6 +4,7 @@ import Axios from "axios";
 import { useNavigate } from "react-router-dom";
 import NavBarPostPage from "../components/navBarPostPage";
 import css from "./css/Post.module.css";
+import { IoIosAddCircle } from 'react-icons/all';
 
 const { Option } = Select;
 
@@ -207,25 +208,23 @@ const Post = () => {
               // {...tailFormItemLayout}
               >
                 <Button className={css.post} htmlType="submit" onClick={posting}>
-                  Create Post
+                  Create Post <div className={css.icon}><IoIosAddCircle/></div>
                 </Button>
               </Form.Item>
             </div>
           </div>
 
 		  <div className={css.scroll_post1}>
+        <h1 style={{marginLeft:"28rem",fontFamily:"system-ui"}}>All post</h1>
           <div className="card-body">
-            <div className={css.card1}>
-              <h1 style={{ color: "white" }}>All Post</h1>
-            </div>
             <div className="container">
               {postList.map((val, key) => {
                 return (
                   <div className={css.card3} style={{ marginTop: "10px" }} key={key}>
-                    <h1>Blood_group: {val.bloodGroup}</h1>
-                    <h1>Amount of Blood: {val.bagOfBlood}</h1>
-                    <h1>Location: {val.location}</h1>
-                    <h1>Contact_no: {val.contact}</h1>
+                    <p className={css.name}>Blood_group: {val.bloodGroup}</p>
+                    <p className={css.name}>Amount of Blood: {val.bagOfBlood}</p>
+                    <p className={css.name}>Location: {val.location}</p>
+                    <p className={css.name}>Contact_no: {val.contact}</p>
                   </div>
                 );
               })}

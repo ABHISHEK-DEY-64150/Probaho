@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import NavBarFrontPage from "../components/navBarFrontPage";
 // import MainNavigation from '../components/mainNavigation'
 import Axios from "axios";
-import { BiSearch, RiEmotionSadFill } from "react-icons/all";
+import { BiSearch, RiEmotionSadFill,AiFillMessage } from "react-icons/all";
 import React, { useState } from "react";
 import { DatePicker, Space } from "antd";
 import { Modal } from "antd";
@@ -219,14 +219,14 @@ export default function Design() {
             <div className={css.scroll_post}>
               <div className="card-body">
                 <div className={css.card1}>
-                  <h1 style={{ color: "Blue" }}>Available Donors</h1>
+                  <h1 style={{ color: "Blue",fontFamily:"system-ui" } }>Available Donors</h1>
                 </div>
                 <div className="container">
                   {user.result.map((val, key) => {
                     return (
                       <div
                         className={css.card}
-                        style={{ marginTop: "10px" }}
+                        style={{ marginTop: "20px" }}
                         key={key}
                       >
                         <h1 className={css.query_result_name}>
@@ -241,8 +241,8 @@ export default function Design() {
                         <h1 className={css.query_result_name}>
                           Location:{val.location}
                         </h1>
-                        <button onClick={() => notify(val.email)}>
-                          notify
+                        <button className={css.notify} onClick={() => notify(val.email)}>
+                          notify <AiFillMessage/>
                         </button>
                       </div>
                     );
@@ -269,7 +269,7 @@ export default function Design() {
             <div className={css.scroll_post1}>
               <div className="card-body">
                 <div className={css.card1}>
-                  <h1 style={{ color: "blue" }}>Available Blood Banks</h1>
+                  <h1 style={{ color: "Blue",fontFamily:"system-ui" } }>Available Blood Banks</h1>
                 </div>
                 <div className="container">
                   {bloodBank.result0.map((val, key) => {
@@ -313,7 +313,7 @@ export default function Design() {
       </div>
       <div>
         <Modal
-          title="Create An Event"
+          title="Send Notification(via Email)"
           visible={open1}
           // onOk={handleOk}
           // onCancel={handleCancel}

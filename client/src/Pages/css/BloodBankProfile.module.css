@@ -4,7 +4,7 @@
 	border: 1px solid #c51616;
 	border-radius: 34px;
 	transition: all 1s ease;
-	background-color:white;
+	background-color:#dbd7d661;
 	justify-content: center;
 	width: 549px;
 	height: 608px;
@@ -110,31 +110,31 @@
 	/* width: 1300px;
       height: 300px; */
 	border: 3px solid #035726;
-	background-color: #09bd54b3;
+
 	transform: scale(1.021, 1.041);
 }
 
 .edit {
 	background-color: #d2e9d3;
-	border: none;
-	color: rgba(124, 160, 69, 0.8);
-	padding: 10px 10px 10px 10px;
-	text-align: center;
-	text-decoration: none;
-	display: inline-block;
-	font-size: 16px;
-	margin: 0px 229px;
-	margin-top: 0px;
-	margin-right: 229px;
-	margin-bottom: 0px;
-	margin-left: 229px;
-	height: 45px;
-	width: 110px;
-	transition-duration: 0.4s;
-	cursor: pointer;
-	border-radius: 24px;
-	color: rgb(32, 74, 58);
-	border: 2px solid #4caf50;
+    border: none;
+    color: rgba(124, 160, 69, 0.8);
+    padding: 10px 10px 10px 10px;
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    /* margin: 0px 229px; */
+    margin-top: 67px;
+    margin-right: 198px;
+    margin-bottom: 0px;
+    margin-left: 351px;
+    height: 52px;
+    width: 152px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 24px;
+    color: rgb(32, 74, 58);
+    border: 2px solid #4caf50;
 }
 
 .edit:hover {
@@ -146,7 +146,7 @@
 .scroll_post {
 	height: 100vh;
 	width: 54vw;
-	background-color: #1e846c;
+	background-color: #dbd7d661;
 	border: 1px solid #c51616;
 	border-radius: 34px;
 	overflow: scroll;
@@ -235,3 +235,54 @@
 .tr:nth-child(even) {
 	background-color: #dddddd;
 }
+
+.event{
+	background-color: #d2e9d3;
+    border: none;
+    color: rgba(124, 160, 69, 0.8);
+    padding: 14px 10px 10px 18px;
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+    font-size: larger;
+    margin: 1px 229px;
+    margin-top: -49px;
+    margin-right: 250px;
+    margin-bottom: 0px;
+    margin-left: 14px;
+    height: 59px;
+    width: 10rem;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 24px;
+    color: rgb(32, 74, 58);
+    border: 2px solid #4caf50;
+}
+
+.event:hover {
+	background-color: rgba(122, 235, 127, 0.692);
+	color: black;
+	border: 2px solid #035726;
+}
+
+.icon {
+	color: #13401e;
+    font-size: 24px;
+    margin-top: -1.7rem;
+    margin-left: 6.25rem;
+}
+
+.evntpos{
+	margin-left: 44rem;
+    width: 5rem;
+    margin-top: -3.2rem;;
+}
+
+
+.iconE{
+	color: #13401e;
+    font-size: 24px;
+    margin-top: -1.7rem;
+    margin-left: 6.25rem;
+}
+
