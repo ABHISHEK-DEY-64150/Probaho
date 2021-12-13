@@ -60,7 +60,7 @@
 
 ## Clone this Project:
 ```
-git clone https://github.com/Akib-Alvee/TourGuide.git
+https://github.com/sani-1023/Probaho.git
 ```
 
 ## To run the project
@@ -82,7 +82,7 @@ npm run devStart
 
 
 # Video Link of the project:
-Probaho <b>[ [watch now](https://youtu.be/0uX4cQpkpTg) ] </b>
+Probaho <b>[ [watch now](https://drive.google.com/file/d/1hkTo3TQPlcCW7rbb_miuqVedgGmBoSdn/view?fbclid=IwAR2kUVlEqZJNQfzi5sTp88vfBno8eDzKLuE4LiwbGj1Kwb0ACPvR_6X7_Vk) ] </b>
 
 
 # Some Screenshots:
