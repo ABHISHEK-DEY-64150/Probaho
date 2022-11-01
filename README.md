@@ -12,7 +12,7 @@
 <li>An easy to use UI</li>
 <li> Two types of User Authentication</li>
 <ul>
-<li> Blood Donorr</li>
+<li> Blood Donor</li>
 <li>Blood bank/Organization</li>
 </ul>
 <li>Anyone can search for Blood Donors</li>
