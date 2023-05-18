@@ -12,7 +12,7 @@
 <li>An easy to use UI</li>
 <li> Two types of User Authentication</li>
 <ul>
-<li> Blood Donorr</li>
+<li> Blood Donor</li>
 <li>Blood bank/Organization</li>
 </ul>
 <li>Anyone can search for Blood Donors</li>
@@ -79,10 +79,6 @@ For Backend(port:3001):
 cd server
 npm run devStart
 ```
-
-
-# Video Link of the project:
-Probaho <b>[ [watch](https://drive.google.com/file/d/1hkTo3TQPlcCW7rbb_miuqVedgGmBoSdn/view?fbclid=IwAR2kUVlEqZJNQfzi5sTp88vfBno8eDzKLuE4LiwbGj1Kwb0ACPvR_6X7_Vk) ] </b>
 
 
 # Some Screenshots:
